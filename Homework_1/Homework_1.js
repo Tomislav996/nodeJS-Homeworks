@@ -9,8 +9,8 @@ let users = [{role: "admin", fullname: "John Doe", username: "John02", password:
             let checkIfUserExists = (name, pass) => {
                 let userFound = false;
                 
-                for(let element of users) {
-                    if(element.username === name && element.password === pass) {
+                for(let user of users) {
+                    if(user.username === name && user.password === pass) {
                         userFound = true;
                         break;
                     } 
@@ -23,6 +23,5 @@ let users = [{role: "admin", fullname: "John Doe", username: "John02", password:
                 }
             }
 
-
-
             checkIfUserExists("Max89", "123456");
+            
