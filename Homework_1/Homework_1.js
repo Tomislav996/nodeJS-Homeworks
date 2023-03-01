@@ -1,4 +1,4 @@
-
+let colors = require("colors");
 
 let users = [{role: "admin", fullname: "John Doe", username: "John02", password: "123qwe"},
 {role: "client", fullName: "Bob Bobski", username: "Bob92", password: "zxczxc"},
@@ -7,6 +7,11 @@ let users = [{role: "admin", fullname: "John Doe", username: "John02", password:
 
 
             let checkIfUserExists = (name, pass) => {
+                if(typeof(name) !== "string" || typeof(pass) !== "string"){
+                    console.log(`Invalid input`.red);
+                    return;
+                    
+                }
                 let userFound = false;
                 
                 for(let user of users) {
@@ -15,13 +20,11 @@ let users = [{role: "admin", fullname: "John Doe", username: "John02", password:
                         break;
                     } 
                 }
-                if(userFound == true){
-                    console.log(`User ${name} is logged in`)
-                }
-                else {
-                    console.log(`User ${name} not found`)
-                }
+                userFound ? console.log(`User ${name} is logged in`.green) : console.log(`User not found`.red.bgYellow)
+
             }
 
             checkIfUserExists("Max89", "123456");
+            checkIfUserExists("Unknown","123");
+            checkIfUserExists(1234, "kjdfg");
             
