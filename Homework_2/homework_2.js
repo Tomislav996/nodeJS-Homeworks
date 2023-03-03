@@ -1,4 +1,4 @@
-const inportedfile = require("exports")
+const inportedfile = require("./Modules/exports")
 
 
 inportedfile("Thomas");
