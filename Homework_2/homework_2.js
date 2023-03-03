@@ -1,4 +1,1 @@
-const inportedfile = require("./Modules/exports")
-
-
-inportedfile("Thomas");
+const fs = require("fs");
