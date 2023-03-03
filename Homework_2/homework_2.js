@@ -16,14 +16,12 @@ let appendToFile = (file, text) => {
 createFile(firstFile, descripiton);
 appendToFile(firstFile,finishedText);
 
-/*
-let data = fs.readFileSync(`../homework_2/homework_2.txt`,`utf-8`);
-console.log(data);
-*/
 
-let pathToSave = path.join(__dirname, `${firstFile}`);
 
-let readFile = fs.readFileSync(`${pathToSave}`,`utf8`);
+let pathToFile = path.join(__dirname, `${firstFile}`);
+
+let readFile = fs.readFileSync(`${pathToFile}`,`utf8`);
 
 console.log(readFile);
+
 
