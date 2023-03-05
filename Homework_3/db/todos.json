@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "Walk the dog",
+    "done": false
+  },
+  {
+    "id": "2",
+    "name": "Wash the dishes",
+    "done": true
+  },
+  {
+    "id": "3",
+    "name": "Watch anime",
+    "done": false
+  },
+  {
+    "id": "fdf42f92-65a5-422c-8c34-924d8e42c596",
+    "name": "Study node js",
+    "done": false
+  },
+  {
+    "id": "2bc00f3a-94f3-426d-8e7a-9b180f6bb460",
+    "name": "Go to the gym",
+    "done": false
+  },
+  {
+    "id": "d87e088e-bdc6-461f-9737-9b12ac425514",
+    "name": "Clean the room",
+    "done": true
+  }
+]

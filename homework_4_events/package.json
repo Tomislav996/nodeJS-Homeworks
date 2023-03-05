@@ -1,8 +1,8 @@
 {
-  "name": "homework_3",
+  "name": "homework_4_events",
   "version": "1.0.0",
-  "description": "homework_3",
-  "main": "homework_3.js",
+  "description": "homework_4",
+  "main": "homework_4.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
