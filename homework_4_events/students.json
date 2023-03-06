@@ -1,1 +1,26 @@
-[{"id":"2af79ffc-f6ec-46ce-8336-59623bc907d1","fullname":"Jane Smith","email":"jane@gmail.com","password":"dfgjdfg"},{"id":"3bc6dd77-90d5-42e7-999e-3f32dd50ec62","fullname":"John Smith","email":"john@gmail.com","password":"123456"},{"id":"aa3bcdcf-8329-41f5-aa3f-4d0e04a37fb9","fullname":"Bob Bobsky","email":"bobbobsky@outlook.com","password":"qwerty"},{"id":"baefb066-04d2-450f-ab7d-4da6f13cef1d","fullname":"Paul Anderson","email":"paul@gmail.com","password":"irncvnj"}]
+[
+  {
+    "id": "babf7c44-16da-4cef-bba7-193fea77b3c6",
+    "fullname": "Jane Smith",
+    "email": "jane@gmail.com",
+    "password": "dfgjdfg"
+  },
+  {
+    "id": "4e0fbce8-0fc8-4c11-b55a-2cdb15342073",
+    "fullname": "John Smith",
+    "email": "john@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": "a8a31c59-187d-49e7-b35d-b5d4edecb200",
+    "fullname": "Bob Bobsky",
+    "email": "bobbobsky@outlook.com",
+    "password": "qwerty"
+  },
+  {
+    "id": "ac948b3c-e15c-4ce7-8787-dce8c9e8530b",
+    "fullname": "Paul Anderson",
+    "email": "paul@gmail.com",
+    "password": "irncvnj"
+  }
+]

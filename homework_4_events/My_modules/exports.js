@@ -22,7 +22,7 @@ export let generateStudentFunction = (fullname,email,password) => {
 }
 
 export let saveStudentToJSON = students => {
-    fs.writeFileSync("students.json", JSON.stringify(students));
+    fs.writeFileSync("students.json", JSON.stringify(students, null, 2));
 }
 
 
