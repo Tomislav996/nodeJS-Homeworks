@@ -46,27 +46,20 @@ export const addTodo = (path, todoName, isTodoDone) => {
     writeToFile(path, JSON.stringify(allTodos, null, 2))
 };
 
- export let deleteTodo = (path,id) => {
+ export let deleteAndReadTodo = (path,id) => {
+    let deletedTodo = null;
     let allTodos = readTodos(path);
     if(id <= 0 || id > allTodos.length || typeof(id) != "number") {
        return console.log("Todo not found/invalid input");
     }
     if(id === 1){
-        allTodos.splice(0,1);
+        deletedTodo = allTodos.splice(0,1);
         writeToFile(path, JSON.stringify(allTodos, null, 2))
-        return;
+        console.log(deletedTodo);
     }
     else{
-        allTodos.splice(id - 1,1);
+        deletedTodo = allTodos.splice(id - 1,1);
         writeToFile(path, JSON.stringify(allTodos, null, 2))
+        console.log(deletedTodo);
     }
- }
-
-export let readTodo = (path,id) => {
-    let allTodos = readTodos(path);
-    if(id <= 0 || id > allTodos.length || typeof(id) != "number") {
-        return console.log("Todo not found/invalid input");
-     }
-    
-    console.log(allTodos[id]);
  }
