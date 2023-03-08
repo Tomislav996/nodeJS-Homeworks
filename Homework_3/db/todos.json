@@ -5,29 +5,9 @@
     "done": false
   },
   {
-    "id": "ea4047ce-5a87-41fa-99da-a90dd60b96e7",
-    "name": "Go to the gym",
-    "done": false
-  },
-  {
-    "id": "cf3913e8-389a-4c71-af99-6aee8564e51b",
-    "name": "Clean the room",
-    "done": true
-  },
-  {
-    "id": "d68461b8-dbe8-4b74-9e15-16df6d58cf31",
-    "name": "Study node js",
-    "done": false
-  },
-  {
-    "id": "74651df5-e2b2-4490-a0cd-5467c12c6d6d",
-    "name": "Go to the gym",
-    "done": false
-  },
-  {
     "id": "f3bd028e-8f4c-4b44-884a-a3433b7a85e8",
     "name": "Clean the room",
-    "done": true
+    "done": false
   },
   {
     "id": "68651061-b3f5-44e3-acf7-2fc0327cbbe2",
@@ -38,11 +18,6 @@
     "id": "351ef8e9-522a-4b24-b175-932044030b72",
     "name": "Go to the gym",
     "done": false
-  },
-  {
-    "id": "b0d87d21-e516-4aed-9460-756bbccdc993",
-    "name": "Clean the room",
-    "done": true
   },
   {
     "id": "fde13c1f-1e99-4ffc-8eab-19c1bb0fda90",
