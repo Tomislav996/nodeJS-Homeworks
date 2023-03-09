@@ -46,59 +46,33 @@ export const addTodo = (path, todoName, isTodoDone) => {
     writeToFile(path, JSON.stringify(allTodos, null, 2))
 };
 
- export let deleteAndReadTodo = (path,id) => {
-    let deletedTodo = null;
+ export let deleteTodo = (path,id) => {
     let allTodos = readTodos(path);
-    if(!validateIndex(id,allTodos)) {
-       return console.log("Todo not found/invalid input");
-    }
-    if(id === 1){
-        deletedTodo = allTodos.splice(0,1);
-        writeToFile(path, JSON.stringify(allTodos, null, 2))
-        console.log(deletedTodo);
-    }
-    else{
-        deletedTodo = allTodos.splice(id - 1,1);
-        writeToFile(path, JSON.stringify(allTodos, null, 2))
-        console.log(deletedTodo);
-    }
+    let filteredTodos = allTodos.filter(todo => todo.id !== id)
+    writeToFile(path, JSON.stringify(filteredTodos,null,2));
+
  }
 
   export const changeTodoStatus = (path,id) => {
     let allTodos = readTodos(path);
-    if(!validateIndex(id,allTodos)) {
-        return console.log("Todo not found/invalid input");
-    }
-    if(id === 1){
-        allTodos[0].done = true;
-        writeToFile(path, JSON.stringify(allTodos, null, 2))
+    const todo = allTodos.find(todo => todo.id === id);
+    if(todo === undefined){
+        return console.log("Todo not found/invalid input")
     }
     else {
-        allTodos[id -1].done = true;
-        writeToFile(path, JSON.stringify(allTodos, null, 2))
+        todo.done = true;
     }
   }
 
  export const readSingleTodo = (path,id) => {
     let allTodos = readTodos(path);
-    if(!validateIndex(id,allTodos)) {
-        return console.log("Todo not found/invalid input");
+    const todo = allTodos.find(todo => todo.id === id);
+    if(todo === undefined){
+        return console.log("Todo not found/invalid input")
     }
-    if(id === 1){
-        console.log(allTodos[0])
-    }
-    else{
-        console.log(allTodos[id-1]);
+    else {
+        return console.log(todo);
     }
  }
 
 
-
-
-
- let validateIndex = (id,array)=>{
-  if(id <= 0 || id > array.length || typeof(id) != "number") {
-        return false;
-    }
- return true;
- }

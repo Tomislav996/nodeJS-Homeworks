@@ -1,27 +1,26 @@
-import http from "http";
+import express from "express";
 
-const server = http.createServer((request, response)=>{
-    const url = request.url;
-    const method = request.method;
 
-    if(url === "/"){
-        response.setHeader("Content-Type", "text/html");
-        response.write("<h1>Hello fellas, we return html from our server</h1>");
-        response.end();
-    }
-    if(url === `/contact`){
-        response.setHeader("Content-Type", "text/html");
-        response.write("<h1>We hit contact endpoint</h1>");
-        response.end();
-    }
+const app = express();
 
-    if(url === "something"){
-        response.setHeader("Content-Type", "text/html");
-        response.write("<h1>this is something endpoint</h1>");
-        response.end();
-    }
+app.use((req,res,next)=>{
+    let localTime = new Date().toLocaleString();
+    console.log(localTime);
+    next();
 })
 
-server.listen(3000, ()=>{
+app.get("/", (request, response) => {
+
+    response.send("<h1>Default route</h1>")
+});
+
+app.get("/student_info", (request, response) => {
+    response.send("<h1>fullname:Tomislav Trpeski, age:26, subject:NODE basic</h1>");
+})
+
+app.post("/student",(request,response)=>{
+    const body = request.body;
+})
+app.listen(3000, () => {
     console.log("Server is up and running...");
-})
+});
