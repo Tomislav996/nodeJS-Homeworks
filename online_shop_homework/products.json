@@ -25,5 +25,23 @@
     "description": "Integer tincidunt. Cras dapibus",
     "category": "C",
     "isInStock": true
+  },
+  {
+    "id": "4",
+    "name": "Nam dui magna",
+    "price": 5,
+    "rating": "1",
+    "description": "Sed commodo odio vel diam euismod",
+    "category": "D",
+    "isInStock": false
+  },
+  {
+    "id": "5",
+    "name": "tortor auctor",
+    "price": 50,
+    "rating": "4",
+    "description": "Maecenas semper pulvinar ex ac cursus",
+    "category": "B",
+    "isInStock": true
   }
 ]

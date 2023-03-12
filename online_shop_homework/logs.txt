@@ -1,0 +1,2 @@
+Request on the route /products was made at 4:22:22 PM
+Request on the route / was made at 4:22:30 PM

@@ -1,17 +1,20 @@
+
 import express from "express";
 const app = express();
 import fs from "fs"
 
-app.use(express.json());
+// all requests  returned undefined on my machine, hence i had to install an additional body parser module.
+app.use(express.json());     
 app.use(express.urlencoded({
     extended:true
 }))
 
-
 let products  = JSON.parse((fs.readFileSync("./products.json", {encoding: "utf-8"})));
 
+// save request messages to logs.txt
 app.use((req, res, next) => {
-    console.log(`Request on the route ${req.path} was made at ${new Date().toLocaleTimeString()}`);
+    let time = new Date().toLocaleTimeString();
+    fs.appendFileSync("./logs.txt",`Request on the route ${req.path} was made at ${time}\n`);
     next();
 });
 
@@ -112,8 +115,25 @@ app.patch("/products/:id",(req,res)=>{
     }
 })
 
+//add product by id to cart
+app.post("/products/:id",(req,res)=>{
+    let productId = req.params.id;
+    let index = products.findIndex(p => p.id === productId);
+    if(index !== -1){
+        fs.appendFileSync(`./cart.txt`,`${JSON.stringify(products[index], null,2)}\n`)
+        res.json(products[index])
+        
+    }
+    else {
+        res.status(404).send(`A product with id ${productId}, does not exist`);
+    }
+})
+
+app.get("*",(req,res)=>{
+    res.status(404).send("<h1> Specified route does not exist");
+})
 
 app.listen(3000, ()=>{
-    console.log("Server is active...")
+    console.log("Server is active...");
 })
 
