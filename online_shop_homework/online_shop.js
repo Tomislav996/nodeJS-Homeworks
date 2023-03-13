@@ -43,7 +43,7 @@ app.get("/products/:id", (req,res)=>{
 })
 
 //Add new product
-app.post("/products",(req,res)=>{
+app.post("/products/productAdd",(req,res)=>{
     const body = req.body;
     let product = {
         id: body.id,
@@ -60,7 +60,7 @@ app.post("/products",(req,res)=>{
 })
 
 // Edit a product by id,
-app.put('/products/:id', (req, res) => {
+app.put('/products/productEdit/:id', (req, res) => {
     let productId = req.params.id
     let body = req.body;
     const index = products.findIndex(p => p.id === productId);
@@ -83,7 +83,7 @@ app.put('/products/:id', (req, res) => {
   });
 
 // Remove a product by ID
-app.delete("/products/:id", (req,res)=>{
+app.delete("/products/deleteProduct/:id", (req,res)=>{
     let productId = req.params.id;
     let index = products.findIndex(p => p.id === productId);
     if (index !== -1) {
@@ -95,14 +95,14 @@ app.delete("/products/:id", (req,res)=>{
     }
 })
 // Delete all products
-app.delete("/products",(req,res)=>{
-    products = undefined;
-    fs.writeFileSync('./products.json', JSON.stringify("products have been deleted", null,2));
+app.delete("/products/deleteAll",(req,res)=>{
+    products = [];
+    fs.writeFileSync('./products.json', JSON.stringify(products, null,2));
     res.send("Products deleted")
 })
 
 // Set product to be out of stock by id
-app.patch("/products/:id",(req,res)=>{
+app.patch("/products/productInstock/:id",(req,res)=>{
     let productId = req.params.id;
     let index = products.findIndex(p => p.id === productId);
     if(index !== -1){
@@ -116,7 +116,7 @@ app.patch("/products/:id",(req,res)=>{
 })
 
 //add product by id to cart
-app.post("/products/:id",(req,res)=>{
+app.post("/products/addTocart/:id",(req,res)=>{
     let productId = req.params.id;
     let index = products.findIndex(p => p.id === productId);
     if(index !== -1){

@@ -1,7 +1,13 @@
 import express from "express";
-
+import fs from "fs";
 
 const app = express();
+
+app.use(express.json());     
+app.use(express.urlencoded({
+    extended:true
+}))
+
 
 app.use((req,res,next)=>{
     let localTime = new Date().toLocaleString();
@@ -14,13 +20,6 @@ app.get("/", (request, response) => {
     response.send("<h1>Default route</h1>")
 });
 
-app.get("/student_info", (request, response) => {
-    response.send("<h1>fullname:Tomislav Trpeski, age:26, subject:NODE basic</h1>");
-})
-
-app.post("/student",(request,response)=>{
-    const body = request.body;
-})
 app.listen(3000, () => {
     console.log("Server is up and running...");
 });
