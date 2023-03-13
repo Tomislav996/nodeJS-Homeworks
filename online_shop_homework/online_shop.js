@@ -102,7 +102,7 @@ app.delete("/products/deleteAll",(req,res)=>{
 })
 
 // Set product to be out of stock by id
-app.patch("/products/productInstock/:id",(req,res)=>{
+app.patch("/products/productOutOfstock/:id",(req,res)=>{
     let productId = req.params.id;
     let index = products.findIndex(p => p.id === productId);
     if(index !== -1){
