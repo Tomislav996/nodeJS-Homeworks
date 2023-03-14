@@ -3,7 +3,6 @@ import express from "express";
 const app = express();
 import fs from "fs"
 
-// all requests  returned undefined on my machine, hence i had to install an additional body parser module.
 app.use(express.json());     
 app.use(express.urlencoded({
     extended:true
@@ -85,15 +84,14 @@ app.put('/products/productEdit/:id', (req, res) => {
 // Remove a product by ID
 app.delete("/products/deleteProduct/:id", (req,res)=>{
     let productId = req.params.id;
-    let index = products.findIndex(p => p.id === productId);
-    if (index !== -1) {
-      products.splice(index, 1);
-      fs.writeFileSync('./products.json', JSON.stringify(products, null,2));
-      res.json(`Product with id ${productId} has been removed.`);
-    } else {
-      res.status(404).send('Product not found');
+    let filteredProducts = products.filter(p => p.id !== productId);
+    if(filteredProducts.length === products.length){
+        res.status(404).send(`product with id ${productId}, does not exist`);
     }
+    fs.writeFileSync(`./products.json`, JSON.stringify(filteredProducts, null, 2));
+    res.send(`product with the id ${productId}, was succesfully removed`);
 })
+
 // Delete all products
 app.delete("/products/deleteAll",(req,res)=>{
     products = [];
