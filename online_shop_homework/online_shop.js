@@ -87,6 +87,7 @@ app.delete("/products/deleteProduct/:id", (req,res)=>{
     let filteredProducts = products.filter(p => p.id !== productId);
     if(filteredProducts.length === products.length){
         res.status(404).send(`product with id ${productId}, does not exist`);
+        return;
     }
     fs.writeFileSync(`./products.json`, JSON.stringify(filteredProducts, null, 2));
     res.send(`product with the id ${productId}, was succesfully removed`);
